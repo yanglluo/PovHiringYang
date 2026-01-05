@@ -6,20 +6,20 @@ const Hero = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.3,
+                staggerChildren: 0.12,
+                delayChildren: 0.2,
             },
         },
     };
 
     const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+        hidden: { opacity: 0, y: 16, filter: "blur(6px)" },
         visible: {
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
             transition: {
-                duration: 0.8,
+                duration: 0.7,
                 ease: "easeOut",
             },
         },
@@ -32,7 +32,7 @@ const Hero = () => {
         },
         {
             label: "POSITION",
-            content: ["Full-Stack Development", "Systems Design", "0→1 Products"],
+            content: ["Full-Stack Dev", "Systems Design", "0→1 Products"],
         },
         {
             label: "TECH",
@@ -50,29 +50,29 @@ const Hero = () => {
     ];
 
     return (
-        <section className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#050505] text-white selection:bg-white selection:text-black">
+        <section className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#050505]">
             {/* Atmospheric Vignette */}
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#050505_70%)] opacity-80" />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.03)_0%,_transparent_50%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#050505_70%)] opacity-60" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.02)_0%,_transparent_60%)]" />
 
             {/* Dashboard Header Grid */}
             <motion.header
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="relative z-10 w-full border-b border-neutral-900"
+                className="relative z-10 w-full border-b border-white/[0.06]"
             >
-                <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-neutral-900">
+                <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-white/[0.06]">
                     {headerColumns.map((col, i) => (
                         <motion.div
                             key={i}
                             variants={itemVariants}
-                            className="p-4 md:p-6"
+                            className="px-5 py-6 md:px-6 md:py-7"
                         >
-                            <span className="text-[10px] tracking-[0.2em] text-neutral-600 uppercase block mb-3">
+                            <span className="text-[11px] tracking-[0.15em] text-neutral-500 uppercase block mb-4 font-medium">
                                 {col.label}
                             </span>
-                            <div className="space-y-1">
+                            <div className="space-y-1.5">
                                 {col.content.map((item, j) => (
                                     col.links ? (
                                         <a
@@ -80,12 +80,12 @@ const Hero = () => {
                                             href={col.links[j]}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="block text-xs text-neutral-400 hover:text-white transition-colors"
+                                            className="block text-[13px] text-neutral-400 hover:text-white transition-colors leading-relaxed"
                                         >
                                             {item}
                                         </a>
                                     ) : (
-                                        <span key={j} className="block text-xs text-neutral-400">
+                                        <span key={j} className="block text-[13px] text-neutral-400 leading-relaxed">
                                             {item}
                                         </span>
                                     )
@@ -97,17 +97,17 @@ const Hero = () => {
             </motion.header>
 
             {/* Centered Hero Content */}
-            <div className="flex-1 flex flex-col items-center justify-center relative z-10 px-8 py-20">
+            <div className="flex-1 flex flex-col items-center justify-center relative z-10 px-6 md:px-12 py-16 md:py-24">
                 <motion.div
-                    initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
+                    initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
                     className="text-center max-w-4xl"
                 >
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-0.02em] leading-[1.1] mb-8">
+                    <h1 className="text-[clamp(2.5rem,7vw,5.5rem)] font-medium tracking-[-0.025em] leading-[1.08] mb-6 md:mb-8">
                         POV: You're hiring Yang.
                     </h1>
-                    <p className="text-lg md:text-xl text-neutral-500 font-light max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-[clamp(1rem,2vw,1.25rem)] text-neutral-400 font-light max-w-xl mx-auto leading-[1.7]">
                         An engineer who ships products, thinks in systems, and optimizes for leverage.
                     </p>
                 </motion.div>
@@ -117,26 +117,25 @@ const Hero = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.2, duration: 0.8 }}
-                className="relative z-10 border-t border-neutral-900"
+                transition={{ delay: 1, duration: 0.7 }}
+                className="relative z-10 border-t border-white/[0.06]"
             >
-                <div className="max-w-6xl mx-auto px-8 py-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-center">
-                    <div>
-                        <span className="text-2xl md:text-3xl font-medium text-white">3+</span>
-                        <span className="block text-[10px] tracking-widest text-neutral-600 uppercase mt-1">Projects Shipped</span>
-                    </div>
-                    <div>
-                        <span className="text-2xl md:text-3xl font-medium text-white">0→1</span>
-                        <span className="block text-[10px] tracking-widest text-neutral-600 uppercase mt-1">Product Focus</span>
-                    </div>
-                    <div>
-                        <span className="text-2xl md:text-3xl font-medium text-white">Full-Stack</span>
-                        <span className="block text-[10px] tracking-widest text-neutral-600 uppercase mt-1">Capability</span>
-                    </div>
-                    <div>
-                        <span className="text-2xl md:text-3xl font-medium text-white">Systems</span>
-                        <span className="block text-[10px] tracking-widest text-neutral-600 uppercase mt-1">Thinking</span>
-                    </div>
+                <div className="max-w-5xl mx-auto px-6 md:px-12 py-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-6 text-center">
+                    {[
+                        { value: "3+", label: "Projects Shipped" },
+                        { value: "0→1", label: "Product Focus" },
+                        { value: "Full-Stack", label: "Capability" },
+                        { value: "Systems", label: "Thinking" },
+                    ].map((stat, i) => (
+                        <div key={i}>
+                            <span className="text-[clamp(1.25rem,3vw,1.75rem)] font-medium text-white tracking-tight">
+                                {stat.value}
+                            </span>
+                            <span className="block text-[11px] tracking-[0.12em] text-neutral-500 uppercase mt-2 font-medium">
+                                {stat.label}
+                            </span>
+                        </div>
+                    ))}
                 </div>
             </motion.div>
         </section>

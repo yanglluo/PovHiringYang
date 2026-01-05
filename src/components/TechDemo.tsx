@@ -11,7 +11,7 @@ const TechDemo = () => {
             setText(fullText.slice(0, index));
             index++;
             if (index > fullText.length) clearInterval(interval);
-        }, 40);
+        }, 35);
         return () => clearInterval(interval);
     }, []);
 
@@ -23,33 +23,33 @@ const TechDemo = () => {
     ];
 
     return (
-        <section className="w-full py-24 md:py-32 bg-[#050505] border-t border-neutral-900">
-            <div className="max-w-6xl mx-auto px-8">
+        <section className="w-full py-24 md:py-32 lg:py-40 bg-[#050505] border-t border-white/[0.06]">
+            <div className="max-w-5xl mx-auto px-6 md:px-12">
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-[10px] tracking-[0.2em] text-neutral-600 uppercase block mb-12"
+                    className="text-[11px] tracking-[0.15em] text-neutral-500 uppercase block mb-12 font-medium"
                 >
                     Technical Proficiency
                 </motion.span>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
                     {/* Terminal */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -16 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="bg-neutral-950 border border-neutral-900 p-6 font-mono text-sm text-green-500/80"
+                        className="bg-[#0a0a0a] border border-white/[0.06] p-6 font-mono text-[13px] text-green-400/70 rounded-sm"
                     >
-                        <div className="flex gap-2 mb-4 pb-3 border-b border-neutral-900">
-                            <div className="w-2.5 h-2.5 rounded-full bg-neutral-800" />
-                            <div className="w-2.5 h-2.5 rounded-full bg-neutral-800" />
-                            <div className="w-2.5 h-2.5 rounded-full bg-neutral-800" />
+                        <div className="flex gap-2 mb-5 pb-4 border-b border-white/[0.04]">
+                            <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
                         </div>
-                        <div className="whitespace-pre-wrap min-h-[140px] text-xs">
+                        <div className="whitespace-pre-wrap min-h-[140px] leading-relaxed">
                             {text}
                             <span className="animate-pulse">_</span>
                         </div>
@@ -57,20 +57,20 @@ const TechDemo = () => {
 
                     {/* Stack Grid */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 16 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                        className="grid grid-cols-2 gap-8"
+                        className="grid grid-cols-2 gap-10"
                     >
                         {stack.map((category, i) => (
                             <div key={i}>
-                                <span className="text-[10px] tracking-[0.2em] text-neutral-600 uppercase block mb-3">
+                                <span className="text-[11px] tracking-[0.15em] text-neutral-500 uppercase block mb-4 font-medium">
                                     {category.label}
                                 </span>
-                                <div className="space-y-2">
+                                <div className="space-y-2.5">
                                     {category.items.map((item, j) => (
-                                        <span key={j} className="block text-sm text-neutral-400">
+                                        <span key={j} className="block text-[15px] text-neutral-400 font-light">
                                             {item}
                                         </span>
                                     ))}

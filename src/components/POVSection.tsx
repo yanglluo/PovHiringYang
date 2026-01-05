@@ -6,14 +6,14 @@ const POVSection = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.12,
+                staggerChildren: 0.1,
                 delayChildren: 0.1,
             },
         },
     };
 
     const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 16, filter: "blur(6px)" },
+        hidden: { opacity: 0, y: 12, filter: "blur(4px)" },
         visible: {
             opacity: 1,
             y: 0,
@@ -32,27 +32,30 @@ const POVSection = () => {
     ];
 
     return (
-        <section className="w-full py-24 md:py-32 bg-[#050505] border-t border-neutral-900">
+        <section className="w-full py-24 md:py-32 lg:py-40 bg-[#050505] border-t border-white/[0.06]">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.4 }}
-                className="max-w-4xl mx-auto px-8"
+                className="max-w-3xl mx-auto px-6 md:px-12"
             >
                 <motion.span
                     variants={itemVariants}
-                    className="text-[10px] tracking-[0.2em] text-neutral-600 uppercase block mb-6"
+                    className="text-[11px] tracking-[0.15em] text-neutral-500 uppercase block mb-8 font-medium"
                 >
                     The Pitch
                 </motion.span>
 
-                <div className="space-y-6">
+                <div className="space-y-5">
                     {bodyLines.map((line, i) => (
                         <motion.p
                             key={i}
                             variants={itemVariants}
-                            className={`text-xl md:text-2xl leading-relaxed ${i === 0 ? 'text-white font-medium' : 'text-neutral-400 font-light'}`}
+                            className={`text-[clamp(1.125rem,2.5vw,1.5rem)] leading-[1.6] ${i === 0
+                                    ? 'text-white font-medium'
+                                    : 'text-neutral-400 font-light'
+                                }`}
                         >
                             {line}
                         </motion.p>
