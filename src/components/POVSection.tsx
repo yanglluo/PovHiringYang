@@ -28,7 +28,7 @@ const POVSection = () => {
     const bodyLines = [
         "You don't need another resume.",
         "You need someone who ships, thinks in systems, and cares about leverage.",
-        "This site shows how I think — not just what I've done.",
+        "This site shows how I think, not just what I've done.",
     ];
 
     return (
@@ -53,8 +53,8 @@ const POVSection = () => {
                             key={i}
                             variants={itemVariants}
                             className={`text-[clamp(1.125rem,2.5vw,1.5rem)] leading-[1.6] ${i === 0
-                                    ? 'text-white font-medium'
-                                    : 'text-neutral-400 font-light'
+                                ? 'text-white font-medium'
+                                : 'text-neutral-400 font-light'
                                 }`}
                         >
                             {line}

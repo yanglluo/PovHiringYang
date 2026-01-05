@@ -104,7 +104,7 @@ const Hero = () => {
                     transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
                     className="text-center max-w-4xl"
                 >
-                    <h1 className="text-[clamp(2.5rem,7vw,5.5rem)] font-medium tracking-[-0.025em] leading-[1.08] mb-6 md:mb-8">
+                    <h1 className="text-[clamp(2rem,6vw,5rem)] font-medium tracking-[-0.025em] leading-[1.08] mb-6 md:mb-8 whitespace-nowrap">
                         POV: You're hiring Yang.
                     </h1>
                     <p className="text-[clamp(1rem,2vw,1.25rem)] text-neutral-400 font-light max-w-xl mx-auto leading-[1.7]">
