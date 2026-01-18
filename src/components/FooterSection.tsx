@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
-const CTASection = () => {
+const FooterSection = () => {
     const links = [
-        { label: "Email", href: "mailto:yang@example.com" },
-        { label: "GitHub", href: "https://github.com" },
-        { label: "X", href: "https://x.com" },
-        { label: "LinkedIn", href: "https://linkedin.com" },
+        { label: "Resume", href: "/Yang_Luo_Resume.pdf", primary: true },
+        { label: "Email", href: "mailto:yluo496@uwo.ca" },
+        { label: "GitHub", href: "https://github.com/yanglluo" },
+        { label: "LinkedIn", href: "https://linkedin.com/in/yanglluo" },
     ];
 
     return (
@@ -21,8 +21,12 @@ const CTASection = () => {
                     Connect
                 </span>
 
-                <p className="text-[clamp(1.375rem,3vw,1.75rem)] text-white font-medium leading-[1.4] mb-12 tracking-tight">
-                    If this POV matches how you think, we should talk.
+                <p className="text-[clamp(1.375rem,3vw,1.75rem)] text-white font-medium leading-[1.4] mb-6 tracking-tight">
+                    If this resonates, let's talk.
+                </p>
+
+                <p className="text-[15px] text-neutral-400 font-light leading-[1.7] mb-10 max-w-lg">
+                    I'd love to chat about how I can contribute to what you're building.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 md:gap-4">
@@ -30,11 +34,14 @@ const CTASection = () => {
                         <motion.a
                             key={i}
                             href={link.href}
-                            target="_blank"
+                            target={link.href.startsWith("mailto:") ? undefined : "_blank"}
                             rel="noopener noreferrer"
                             whileHover={{ y: -2 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase text-neutral-400 border border-white/[0.08] hover:border-white/[0.2] hover:text-white transition-all duration-300 rounded-sm"
+                            className={`px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase transition-all duration-300 rounded-sm ${link.primary
+                                ? "bg-white text-[#050505] hover:bg-neutral-200"
+                                : "text-neutral-400 border border-white/[0.08] hover:border-white/[0.2] hover:text-white"
+                                }`}
                         >
                             {link.label}
                         </motion.a>
@@ -44,10 +51,10 @@ const CTASection = () => {
                 <div className="mt-24 pt-10 border-t border-white/[0.06]">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <span className="text-[13px] text-neutral-500 font-light">
-                            Yang Luo · 2024
+                            Yang Luo · 2026
                         </span>
                         <span className="text-[13px] text-neutral-500 font-light">
-                            Built with React, TypeScript, Tailwind, Framer Motion
+                            yluo496@uwo.ca
                         </span>
                     </div>
                 </div>
@@ -56,4 +63,4 @@ const CTASection = () => {
     );
 };
 
-export default CTASection;
+export default FooterSection;

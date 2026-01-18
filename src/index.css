@@ -71,3 +71,69 @@ a {
   outline: 1px solid rgba(255, 255, 255, 0.4);
   outline-offset: 2px;
 }
+
+/* Button Styles - Dark Theme */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  color: #050505;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: #E5E5E5;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Section container */
+.section-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 0 2rem;
+  }
+}
+
+/* Prose styling for memo sections */
+.prose-memo {
+  color: #A3A3A3;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.prose-memo p {
+  margin-bottom: 1rem;
+}
+
+.prose-memo strong {
+  color: white;
+  font-weight: 500;
+}

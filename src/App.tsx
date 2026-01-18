@@ -1,21 +1,17 @@
 import Hero from "./components/Hero";
-import POVSection from "./components/POVSection";
-import ThinkingSection from "./components/ThinkingSection";
-import TechDemo from "./components/TechDemo";
-import CaseStudiesLite from "./components/CaseStudiesLite";
-import SignalSection from "./components/SignalSection";
-import CTASection from "./components/CTASection";
+import WhyMeSection from "./components/WhyMeSection";
+import ProjectsSection from "./components/ProjectsSection";
+import HowIThinkSection from "./components/HowIThinkSection";
+import FooterSection from "./components/FooterSection";
 
 function App() {
   return (
-    <main className="bg-[#050505] min-h-screen text-white antialiased">
+    <main className="bg-[#050505] min-h-screen antialiased">
       <Hero />
-      <POVSection />
-      <ThinkingSection />
-      <TechDemo />
-      <CaseStudiesLite />
-      <SignalSection />
-      <CTASection />
+      <WhyMeSection />
+      <ProjectsSection />
+      <HowIThinkSection />
+      <FooterSection />
     </main>
   );
 }

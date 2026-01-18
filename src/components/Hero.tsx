@@ -28,24 +28,24 @@ const Hero = () => {
     const headerColumns = [
         {
             label: "INTRO",
-            content: ["Yang Luo", "Product Engineer", "2024–NOW"],
+            content: ["Yang Luo", "Software Engineer", "Vancouver, Canada"],
         },
         {
-            label: "POSITION",
-            content: ["Full-Stack Dev", "Systems Design", "0→1 Products"],
+            label: "EDUCATION",
+            content: ["Western University", "B.S. Computer Science", "May 2027"],
         },
         {
             label: "TECH",
-            content: ["React / TypeScript", "Tailwind / Framer", "Supabase / Stripe"],
+            content: ["React / TypeScript", "Node.js / Python", "Tailwind / AWS"],
         },
         {
             label: "FOCUS",
-            content: ["Revenue Systems", "Automation", "Developer Experience"],
+            content: ["Fintech Infrastructure", "Revenue Systems", "Internal Tools"],
         },
         {
             label: "CONNECT",
-            content: ["GitHub", "Email", "X"],
-            links: ["https://github.com", "mailto:yang@example.com", "https://x.com"],
+            content: ["GitHub", "LinkedIn", "Email"],
+            links: ["https://github.com/yanglluo", "https://linkedin.com/in/yanglluo", "mailto:yluo496@uwo.ca"],
         },
     ];
 
@@ -78,7 +78,7 @@ const Hero = () => {
                                         <a
                                             key={j}
                                             href={col.links[j]}
-                                            target="_blank"
+                                            target={col.links[j].startsWith("mailto:") ? undefined : "_blank"}
                                             rel="noopener noreferrer"
                                             className="block text-[13px] text-neutral-400 hover:text-white transition-colors leading-relaxed"
                                         >
@@ -102,14 +102,32 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
-                    className="text-center max-w-4xl"
+                    className="text-center max-w-3xl"
                 >
-                    <h1 className="text-[clamp(2rem,6vw,5rem)] font-medium tracking-[-0.025em] leading-[1.08] mb-6 md:mb-8 whitespace-nowrap">
-                        POV: You're hiring Yang.
+                    <h1 className="text-[clamp(2rem,6vw,4rem)] font-medium tracking-[-0.025em] leading-[1.08] mb-6 md:mb-8">
+                        I build products that handle money carefully.
                     </h1>
-                    <p className="text-[clamp(1rem,2vw,1.25rem)] text-neutral-400 font-light max-w-xl mx-auto leading-[1.7]">
-                        An engineer who ships products, thinks in systems, and optimizes for leverage.
+                    <p className="text-[clamp(1rem,2vw,1.25rem)] text-neutral-400 font-light max-w-xl mx-auto leading-[1.7] mb-10">
+                        Full-stack engineer focused on fintech infrastructure, revenue systems, and internal tools. I like boring problems that matter.
                     </p>
+
+                    {/* CTAs */}
+                    <div className="flex flex-wrap items-center justify-center gap-4">
+                        <a
+                            href="/Yang_Luo_Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-primary"
+                        >
+                            View Resume
+                        </a>
+                        <a
+                            href="#why-me"
+                            className="btn-secondary"
+                        >
+                            Why I'd Be a Great Fit
+                        </a>
+                    </div>
                 </motion.div>
             </div>
 
@@ -122,10 +140,10 @@ const Hero = () => {
             >
                 <div className="max-w-5xl mx-auto px-6 md:px-12 py-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-6 text-center">
                     {[
-                        { value: "3+", label: "Projects Shipped" },
+                        { value: "5+", label: "Websites Shipped" },
+                        { value: "$6K+", label: "Client Revenue" },
+                        { value: "Full-Stack", label: "End-to-End" },
                         { value: "0→1", label: "Product Focus" },
-                        { value: "Full-Stack", label: "Capability" },
-                        { value: "Systems", label: "Thinking" },
                     ].map((stat, i) => (
                         <div key={i}>
                             <span className="text-[clamp(1.25rem,3vw,1.75rem)] font-medium text-white tracking-tight">
