@@ -6,7 +6,7 @@ interface FooterSectionProps {
 
 const FooterSection = ({ onResumeClick }: FooterSectionProps) => {
     const links = [
-        { label: "Email", href: "mailto:Yangluo2004@gmail.com" },
+        { label: "Email", href: "mailto:theyangluo@gmail.com" },
         { label: "GitHub", href: "https://github.com/yanglluo" },
         { label: "LinkedIn", href: "https://linkedin.com/in/yanglluo" },
     ];
@@ -65,7 +65,7 @@ const FooterSection = ({ onResumeClick }: FooterSectionProps) => {
                             Yang Luo · 2026
                         </span>
                         <span className="text-[13px] text-neutral-500 font-light">
-                            Yangluo2004@gmail.com
+                            theyangluo@gmail.com
                         </span>
                     </div>
                 </div>
