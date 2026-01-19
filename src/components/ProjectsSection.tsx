@@ -38,7 +38,7 @@ const ProjectsSection = () => {
         },
         {
             name: "RevLeak",
-            url: "https://RevLeak.io",
+            url: "https://revleak.co",
             category: "Revenue Infrastructure",
             problem: "SaaS companies lose money to failed payments, expired cards, and dunning gaps. Most founders don't even know it's happening until they audit months later.",
             why: "Churn from payment failures is preventable but invisible. A tool that surfaces this in real-time saves real money.",
