@@ -55,21 +55,21 @@ const WhyMeSection = () => {
                     </p>
 
                     <p>
-                        I've built revenue systems, payment integrations, and client-facing products that handle real money. I understand the care required when dealing with financial data—every edge case matters.
+                        I've built revenue systems, payment integrations, and client-facing products that handle real money. I understand the care required when dealing with financial data. Every edge case matters.
                     </p>
 
                     <p className="text-white font-medium">What I bring to engineering teams:</p>
 
                     <ul className="space-y-4 ml-1">
-                        <li className="relative pl-5 before:content-['—'] before:absolute before:left-0 before:text-neutral-600">
+                        <li className="relative pl-5 before:content-['•'] before:absolute before:left-0 before:text-neutral-600">
                             <span className="text-white font-medium">End-to-end ownership.</span>{" "}
                             I don't hand off problems. From scoping to shipping to post-launch support, I own the full lifecycle.
                         </li>
-                        <li className="relative pl-5 before:content-['—'] before:absolute before:left-0 before:text-neutral-600">
+                        <li className="relative pl-5 before:content-['•'] before:absolute before:left-0 before:text-neutral-600">
                             <span className="text-white font-medium">Product thinking.</span>{" "}
                             I build features that solve real problems, not just implement specs. I ask why before I ask how.
                         </li>
-                        <li className="relative pl-5 before:content-['—'] before:absolute before:left-0 before:text-neutral-600">
+                        <li className="relative pl-5 before:content-['•'] before:absolute before:left-0 before:text-neutral-600">
                             <span className="text-white font-medium">Systems mindset.</span>{" "}
                             I think about edge cases, failure modes, and scale from day one. Not as an afterthought.
                         </li>

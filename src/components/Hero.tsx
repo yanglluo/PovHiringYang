@@ -1,6 +1,10 @@
 import { motion, type Variants } from "framer-motion";
 
-const Hero = () => {
+interface HeroProps {
+    onResumeClick: () => void;
+}
+
+const Hero = ({ onResumeClick }: HeroProps) => {
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -28,7 +32,7 @@ const Hero = () => {
     const headerColumns = [
         {
             label: "INTRO",
-            content: ["Yang Luo", "Software Engineer", "Vancouver, Canada"],
+            content: ["Yang Luo", "Software Engineer", "Toronto, Canada"],
         },
         {
             label: "EDUCATION",
@@ -45,7 +49,7 @@ const Hero = () => {
         {
             label: "CONNECT",
             content: ["GitHub", "LinkedIn", "Email"],
-            links: ["https://github.com/yanglluo", "https://linkedin.com/in/yanglluo", "mailto:yluo496@uwo.ca"],
+            links: ["https://github.com/yanglluo", "https://linkedin.com/in/yanglluo", "mailto:theyangluo@gmail.com"],
         },
     ];
 
@@ -113,14 +117,12 @@ const Hero = () => {
 
                     {/* CTAs */}
                     <div className="flex flex-wrap items-center justify-center gap-4">
-                        <a
-                            href="/Yang_Luo_Resume.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <button
+                            onClick={onResumeClick}
                             className="btn-primary"
                         >
                             View Resume
-                        </a>
+                        </button>
                         <a
                             href="#why-me"
                             className="btn-secondary"

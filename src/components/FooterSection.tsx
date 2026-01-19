@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 
-const FooterSection = () => {
+interface FooterSectionProps {
+    onResumeClick: () => void;
+}
+
+const FooterSection = ({ onResumeClick }: FooterSectionProps) => {
     const links = [
-        { label: "Resume", href: "/Yang_Luo_Resume.pdf", primary: true },
-        { label: "Email", href: "mailto:yluo496@uwo.ca" },
+        { label: "Email", href: "mailto:Yangluo2004@gmail.com" },
         { label: "GitHub", href: "https://github.com/yanglluo" },
         { label: "LinkedIn", href: "https://linkedin.com/in/yanglluo" },
     ];
@@ -15,7 +18,7 @@ const FooterSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="max-w-3xl mx-auto px-6 md:px-12"
+                className="max-w-5xl mx-auto px-6 md:px-12"
             >
                 <span className="text-[11px] tracking-[0.15em] text-neutral-500 uppercase block mb-8 font-medium">
                     Connect
@@ -30,6 +33,17 @@ const FooterSection = () => {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 md:gap-4">
+                    {/* Resume Button */}
+                    <motion.button
+                        onClick={onResumeClick}
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase transition-all duration-300 rounded-sm bg-white text-[#050505] hover:bg-neutral-200"
+                    >
+                        Resume
+                    </motion.button>
+
+                    {/* Other Links */}
                     {links.map((link, i) => (
                         <motion.a
                             key={i}
@@ -38,10 +52,7 @@ const FooterSection = () => {
                             rel="noopener noreferrer"
                             whileHover={{ y: -2 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className={`px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase transition-all duration-300 rounded-sm ${link.primary
-                                ? "bg-white text-[#050505] hover:bg-neutral-200"
-                                : "text-neutral-400 border border-white/[0.08] hover:border-white/[0.2] hover:text-white"
-                                }`}
+                            className="px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase transition-all duration-300 rounded-sm text-neutral-400 border border-white/[0.08] hover:border-white/[0.2] hover:text-white"
                         >
                             {link.label}
                         </motion.a>
@@ -54,7 +65,7 @@ const FooterSection = () => {
                             Yang Luo · 2026
                         </span>
                         <span className="text-[13px] text-neutral-500 font-light">
-                            yluo496@uwo.ca
+                            Yangluo2004@gmail.com
                         </span>
                     </div>
                 </div>
