@@ -1,10 +1,22 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 interface HeroProps {
     onResumeClick: () => void;
 }
 
 const Hero = ({ onResumeClick }: HeroProps) => {
+    // Animated keyword carousel
+    const keywords = ["fintech infrastructure", "revenue systems", "internal tools", "payment flows", "boring problems"];
+    const [currentKeyword, setCurrentKeyword] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentKeyword((prev) => (prev + 1) % keywords.length);
+        }, 2500);
+        return () => clearInterval(interval);
+    }, []);
+
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -48,8 +60,8 @@ const Hero = ({ onResumeClick }: HeroProps) => {
         },
         {
             label: "CONNECT",
-            content: ["GitHub", "LinkedIn", "Email"],
-            links: ["https://github.com/yanglluo", "https://linkedin.com/in/yanglluo", "mailto:theyangluo@gmail.com"],
+            content: ["X", "LinkedIn", "Email"],
+            links: ["https://x.com/yangbuilds", "https://linkedin.com/in/yanglluo", "mailto:theyangluo@gmail.com"],
         },
     ];
 
@@ -57,7 +69,7 @@ const Hero = ({ onResumeClick }: HeroProps) => {
         <section className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#050505]">
             {/* Atmospheric Vignette */}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#050505_70%)] opacity-60" />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.02)_0%,_transparent_60%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(99,102,241,0.03)_0%,_transparent_50%)]" />
 
             {/* Dashboard Header Grid */}
             <motion.header
@@ -71,7 +83,7 @@ const Hero = ({ onResumeClick }: HeroProps) => {
                         <motion.div
                             key={i}
                             variants={itemVariants}
-                            className="px-5 py-6 md:px-6 md:py-7"
+                            className="px-5 py-6 md:px-6 md:py-8"
                         >
                             <span className="text-[11px] tracking-[0.15em] text-neutral-500 uppercase block mb-4 font-medium">
                                 {col.label}
@@ -84,7 +96,7 @@ const Hero = ({ onResumeClick }: HeroProps) => {
                                             href={col.links[j]}
                                             target={col.links[j].startsWith("mailto:") ? undefined : "_blank"}
                                             rel="noopener noreferrer"
-                                            className="block text-[13px] text-neutral-400 hover:text-white transition-colors leading-relaxed"
+                                            className="block text-[13px] text-neutral-400 hover:text-white transition-colors duration-200 leading-relaxed"
                                         >
                                             {item}
                                         </a>
@@ -101,60 +113,104 @@ const Hero = ({ onResumeClick }: HeroProps) => {
             </motion.header>
 
             {/* Centered Hero Content */}
-            <div className="flex-1 flex flex-col items-center justify-center relative z-10 px-6 md:px-12 py-16 md:py-24">
+            <div className="flex-1 flex flex-col items-center justify-center relative z-10 px-6 md:px-12 py-20 md:py-28">
                 <motion.div
                     initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
                     className="text-center max-w-3xl"
                 >
-                    <h1 className="text-[clamp(2rem,6vw,4rem)] font-medium tracking-[-0.025em] leading-[1.08] mb-6 md:mb-8">
+                    <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-semibold tracking-[-0.03em] leading-[1.08] mb-8">
                         I build products that handle money carefully.
                     </h1>
-                    <p className="text-[clamp(1rem,2vw,1.25rem)] text-neutral-400 font-light max-w-xl mx-auto leading-[1.7] mb-10">
-                        Full-stack engineer focused on fintech infrastructure, revenue systems, and internal tools. I like boring problems that matter.
+
+                    {/* Animated keyword section */}
+                    <div className="text-[clamp(1.125rem,2.5vw,1.5rem)] text-neutral-400 font-normal mb-4 flex flex-wrap items-center justify-center gap-2">
+                        <span>Full-stack engineer focused on</span>
+                        <span className="relative h-[1.5em] w-[200px] md:w-[260px] overflow-hidden inline-flex">
+                            <AnimatePresence mode="wait">
+                                <motion.span
+                                    key={currentKeyword}
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: -20, opacity: 0 }}
+                                    transition={{ duration: 0.4, ease: "easeOut" }}
+                                    className="absolute left-0 text-white font-medium"
+                                >
+                                    {keywords[currentKeyword]}
+                                </motion.span>
+                            </AnimatePresence>
+                        </span>
+                    </div>
+
+                    <p className="text-[clamp(1rem,2vw,1.125rem)] text-neutral-500 font-light max-w-lg mx-auto leading-[1.7] mb-12">
+                        I like boring problems that matter.
                     </p>
 
                     {/* CTAs */}
                     <div className="flex flex-wrap items-center justify-center gap-4">
-                        <button
+                        <motion.button
                             onClick={onResumeClick}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                             className="btn-primary"
                         >
                             View Resume
-                        </button>
-                        <a
+                        </motion.button>
+                        <motion.a
                             href="#why-me"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                             className="btn-secondary"
                         >
                             Why I'd Be a Great Fit
-                        </a>
+                        </motion.a>
+                    </div>
+                </motion.div>
+
+                {/* Scroll Indicator */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5, duration: 0.5 }}
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                >
+                    <div className="scroll-indicator text-neutral-600 text-[11px] tracking-[0.15em] uppercase flex flex-col items-center gap-2">
+                        <span>Scroll</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
                     </div>
                 </motion.div>
             </div>
 
-            {/* Bottom Stats Bar */}
+            {/* Bottom Stats Bar - Bento Style */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 0.7 }}
                 className="relative z-10 border-t border-white/[0.06]"
             >
-                <div className="max-w-5xl mx-auto px-6 md:px-12 py-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-6 text-center">
+                <div className="max-w-5xl mx-auto px-6 md:px-12 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
                     {[
                         { value: "5+", label: "Websites Shipped" },
                         { value: "$6K+", label: "Client Revenue" },
                         { value: "Full-Stack", label: "End-to-End" },
                         { value: "0→1", label: "Product Focus" },
                     ].map((stat, i) => (
-                        <div key={i}>
-                            <span className="text-[clamp(1.25rem,3vw,1.75rem)] font-medium text-white tracking-tight">
+                        <motion.div
+                            key={i}
+                            whileHover={{ y: -2 }}
+                            transition={{ duration: 0.2 }}
+                            className="bento-card p-5 text-center"
+                        >
+                            <span className="text-[clamp(1.25rem,3vw,1.75rem)] font-semibold text-white tracking-tight block">
                                 {stat.value}
                             </span>
                             <span className="block text-[11px] tracking-[0.12em] text-neutral-500 uppercase mt-2 font-medium">
                                 {stat.label}
                             </span>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </motion.div>

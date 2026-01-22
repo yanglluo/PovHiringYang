@@ -64,7 +64,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                                         {" | "}(778) 896-8891{" | "}
                                         <a href="https://linkedin.com/in/yanglluo" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">LinkedIn</a>
                                         {" | "}
-                                        <a href="https://github.com/yanglluo" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">GitHub</a>
+                                        <a href="https://x.com/yangbuilds" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">X</a>
                                         {" | "}Toronto, Canada
                                     </p>
                                 </div>
