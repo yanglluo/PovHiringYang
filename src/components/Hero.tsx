@@ -184,31 +184,43 @@ const Hero = ({ onResumeClick }: HeroProps) => {
                 </motion.div>
             </div>
 
-            {/* Bottom Stats Bar - Bento Style */}
+            {/* Bottom Capabilities Bar - Bento Style */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 0.7 }}
                 className="relative z-10 border-t border-white/[0.06]"
             >
-                <div className="max-w-5xl mx-auto px-6 md:px-12 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="max-w-6xl mx-auto px-6 md:px-12 py-12 grid grid-cols-2 md:grid-cols-4 gap-4">
                     {[
-                        { value: "5+", label: "Websites Shipped" },
-                        { value: "$6K+", label: "Client Revenue" },
-                        { value: "Full-Stack", label: "End-to-End" },
-                        { value: "0→1", label: "Product Focus" },
-                    ].map((stat, i) => (
+                        {
+                            title: "Computer Science Foundations",
+                            description: "Data Structures • Algorithms • Big-O"
+                        },
+                        {
+                            title: "End-to-End Project Experience",
+                            description: "From idea → build → deploy"
+                        },
+                        {
+                            title: "Modern Web Stack",
+                            description: "React • Node • SQL • APIs"
+                        },
+                        {
+                            title: "Growth-Focused Mindset",
+                            description: "Learning and improving daily"
+                        },
+                    ].map((capability, i) => (
                         <motion.div
                             key={i}
-                            whileHover={{ y: -2 }}
+                            whileHover={{ y: -3 }}
                             transition={{ duration: 0.2 }}
-                            className="bento-card p-5 text-center"
+                            className="bento-card p-6 min-h-[100px] flex flex-col justify-center items-center text-center"
                         >
-                            <span className="text-[clamp(1.25rem,3vw,1.75rem)] font-semibold text-white tracking-tight block">
-                                {stat.value}
+                            <span className="text-[13px] md:text-[14px] font-semibold text-white tracking-tight block mb-1.5 leading-snug">
+                                {capability.title}
                             </span>
-                            <span className="block text-[11px] tracking-[0.12em] text-neutral-500 uppercase mt-2 font-medium">
-                                {stat.label}
+                            <span className="block text-[11px] md:text-[12px] text-neutral-500 leading-relaxed">
+                                {capability.description}
                             </span>
                         </motion.div>
                     ))}
