@@ -94,9 +94,12 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                                         Technical Skills
                                     </h2>
                                     <div className="text-sm space-y-1">
+                                        <p><span className="font-medium">AI & Data:</span> Prompt Engineering, AI Workflow Design, Data Analysis</p>
                                         <p><span className="font-medium">Languages:</span> TypeScript / JavaScript, Python, SQL, Java</p>
-                                        <p><span className="font-medium">Frontend:</span> React.js, Tailwind CSS | <span className="font-medium">Backend & APIs:</span> Node.js, REST API Design, Authentication & Authorization</p>
-                                        <p><span className="font-medium">Databases & Infrastructure:</span> PostgreSQL, MongoDB, Relational Data Modelling, Git/GitHub, AWS, GCP</p>
+                                        <p><span className="font-medium">Frontend:</span> React, Tailwind CSS, HTML</p>
+                                        <p><span className="font-medium">Backend & APIs:</span> Node.js, REST APIs, Authentication</p>
+                                        <p><span className="font-medium">Infrastructure:</span> PostgreSQL, MongoDB, AWS, GCP</p>
+                                        <p><span className="font-medium">Additional:</span> Codebase analysis, refactoring, and system restructuring</p>
                                     </div>
                                 </section>
 
@@ -116,9 +119,9 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                                             <span className="text-sm text-neutral-600 whitespace-nowrap ml-4">Nov 2024 – Present</span>
                                         </div>
                                         <ul className="text-sm text-neutral-700 space-y-1.5 ml-4 list-disc">
-                                            <li>Co-founded and scaled a freelance web development business, delivering 5 fully customized websites in 5 months and generating over $6,000 in client revenue across real estate, retail, and personal branding.</li>
-                                            <li>Designed and implemented polished, conversion-optimized websites with a focus on responsive design, accessibility, SEO, and performance optimization, improving site speed, visibility, and user engagement.</li>
-                                            <li>Owned the full project lifecycle from sales outreach and requirements gathering to development, QA testing, deployment, and post-launch support, maintaining clear client communication and delivery timelines.</li>
+                                            <li>Co-founded and scaled a digital development business, delivering structured web systems for clients across industries</li>
+                                            <li>Designed and implemented conversion-optimised websites, improving usability, performance, and user experience</li>
+                                            <li>Applied analytical thinking to develop digital workflows supporting business operations</li>
                                         </ul>
                                     </div>
 
@@ -127,14 +130,14 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                                         <div className="flex justify-between items-start mb-1">
                                             <div>
                                                 <p className="font-medium">Wouessi Mobile & Software Development Program <span className="font-normal text-neutral-600">- Toronto, Canada</span></p>
-                                                <p className="text-sm italic text-neutral-600">Software Engineer Internship | React, TypeScript, MongoDB</p>
+                                                <p className="text-sm italic text-neutral-600">Software Developer (Training Program) | React, TypeScript, MongoDB</p>
                                             </div>
                                             <span className="text-sm text-neutral-600 whitespace-nowrap ml-4">Mar 2025 - Jun 2025</span>
                                         </div>
                                         <ul className="text-sm text-neutral-700 space-y-1.5 ml-4 list-disc">
-                                            <li>Selected for a competitive 4-week software development program across three cohorts, contributing to two full-stack team projects and gaining hands-on experience with Agile delivery.</li>
-                                            <li>Built frontend interfaces and backend features for an Employee Management System and a Tender Discovery Platform, shipping production-ready functionality as capstone deliverables.</li>
-                                            <li>Collaborated in a team of six using sprint planning, code reviews, and Git-based workflows, and was recognized by program managers for strong teamwork, resilience, and problem-solving under real project timelines.</li>
+                                            <li>Selected for a competitive software development program, contributing to structured system development projects</li>
+                                            <li>Built frontend interfaces and backend features for platforms involving data handling and workflow coordination</li>
+                                            <li>Collaborated in Agile environments, contributing to system design and iterative problem-solving</li>
                                         </ul>
                                     </div>
                                 </section>
@@ -154,10 +157,10 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                                             <span className="text-sm text-neutral-600 whitespace-nowrap ml-4">Oct 2025 - Present</span>
                                         </div>
                                         <ul className="text-sm text-neutral-700 space-y-1.5 ml-4 list-disc">
-                                            <li>Built an end-to-end revenue monitoring system that detects failed payments, billing mismatches, and configuration errors by ingesting and reconciling transaction data across multiple sources.</li>
-                                            <li>Designed and implemented a React dashboard and Python/PostgreSQL backend supporting secure data ingestion, normalized financial schemas, and API-driven anomaly detection for founder-facing visibility.</li>
-                                            <li>Introduced a read-only, safety-first analysis layer that flags revenue risks without mutating live financial data, reducing the chance of accidental destructive actions while improving user trust.</li>
-                                            <li>Iterated on data models and UX flows based on early user feedback, reducing false-positive alerts and improving issue clarity for non-technical founders.</li>
+                                            <li>Built an end-to-end revenue monitoring system detecting failed payments, billing mismatches, and configuration errors</li>
+                                            <li>Designed data processing workflows for structured financial event tracking and analysis</li>
+                                            <li>Developed dashboards and backend systems supporting secure data ingestion and actionable insights</li>
+                                            <li>Iterated on system models based on feedback, improving detection accuracy and reducing false positives</li>
                                         </ul>
                                     </div>
 
@@ -170,9 +173,10 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                                             <span className="text-sm text-neutral-600 whitespace-nowrap ml-4">Aug 2025 - Present</span>
                                         </div>
                                         <ul className="text-sm text-neutral-700 space-y-1.5 ml-4 list-disc">
-                                            <li>Built a QR-based peer-to-peer payments flow that initiates Interac e-Transfers from scanned intent, eliminating manual email and phone-number entry.</li>
-                                            <li>Designed and implemented backend intent-handling and recipient validation logic to safely guide users through secure transfer initiation and confirmation, improving reliability over ad-hoc workflows.</li>
-                                            <li>Integrated OpenAI-powered context classification to handle ambiguous payment scenarios while enforcing explicit human approval for all financial actions.</li>
+                                            <li>Built an AI-powered financial application automating peer-to-peer payments through structured intent recognition and validation</li>
+                                            <li>Designed backend logic for intent handling and recipient validation, improving transaction accuracy and reliability</li>
+                                            <li>Integrated AI-powered classification to manage ambiguous payment scenarios and enforce approval workflows</li>
+                                            <li>Refactored system logic and rebuilt components to improve transaction reliability and workflow efficiency</li>
                                         </ul>
                                     </div>
                                 </section>
