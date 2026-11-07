@@ -27,6 +27,32 @@ const ProjectsSection = () => {
 
     const projects = [
         {
+            name: "Provision",
+            url: "https://github.com/yanglluo/provision-case-study",
+            caseStudyUrl: "https://github.com/yanglluo/provision-case-study",
+            category: "Native iOS Nutrition App",
+            emoji: "🌿",
+            problem: "Meal descriptions, estimated portions, and incomplete food data can turn uncertain inputs into nutrition totals that look more precise than they are.",
+            why: "People should be able to inspect the food source and portion behind a nutrition record, with missing information kept visible.",
+            built: "A SwiftUI app that connects food exploration, ingredient and source review, explicit meal confirmation, an on-device journal, and recorded-period insights. The public case study includes actual QA simulator screenshots and architecture diagrams.",
+            decisions: "Separated recoverable drafts from confirmed meals, preserved unknown-versus-zero nutrient values, and validated atomic saves before reporting success. The app is in development; its source remains private.",
+            tech: ["Swift", "SwiftUI", "Observation", "Codable", "XCTest"],
+            date: "In development",
+        },
+        {
+            name: "Signal Desk",
+            url: "https://github.com/yanglluo/signal-desk-case-study",
+            caseStudyUrl: "https://github.com/yanglluo/signal-desk-case-study",
+            category: "AI-Assisted Media Monitoring",
+            emoji: "📰",
+            problem: "Media monitoring spans discovery feeds, article text, duplicate links, model suggestions, editorial decisions, and report preparation.",
+            why: "A discovered article or AI suggestion should not become official coverage without evidence checks and a deliberate human decision.",
+            built: "A media-monitoring workflow connecting multi-source ingestion, deduplication, structured AI suggestions, workspace-scoped review, and approved-only report generation. The public case study explains the architecture through fictional examples.",
+            decisions: "Validated quoted evidence against the current article, kept model suggestions separate from reviewer decisions, and made provider failures and resumable work visible. Company code, client identities, and operational data remain private.",
+            tech: ["React", "TypeScript", "Supabase", "PostgreSQL", "OpenAI", "Vitest"],
+            date: "Public case study",
+        },
+        {
             name: "Mend",
             url: "https://MendFinance.app",
             category: "AI Financial Wellness",
@@ -88,9 +114,9 @@ const ProjectsSection = () => {
                     viewport={{ once: true, amount: 0.1 }}
                     className="space-y-8"
                 >
-                    {projects.map((project, i) => (
+                    {projects.map((project) => (
                         <motion.article
-                            key={i}
+                            key={project.name}
                             variants={cardVariants}
                             whileHover={{ y: -4 }}
                             transition={{ duration: 0.3 }}
@@ -167,6 +193,18 @@ const ProjectsSection = () => {
                                     </div>
                                 </div>
                             </div>
+
+                            {project.caseStudyUrl ? (
+                                <a
+                                    href={project.caseStudyUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={`Read ${project.name} case study on GitHub`}
+                                    className="inline-flex items-center gap-2 text-sm font-medium text-white underline underline-offset-4 hover:text-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white mb-6"
+                                >
+                                    Read case study on GitHub <span aria-hidden="true">↗</span>
+                                </a>
+                            ) : null}
 
                             {/* Tech Stack Tags */}
                             <div className="pt-6 border-t border-white/[0.04] flex flex-wrap gap-2">
