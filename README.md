@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# POV: Hiring Yang
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A React portfolio that gives visitors a direct path from introduction to project context and résumé.**
 
-Currently, two official plugins are available:
+This repository contains a section-based portfolio for Yang Luo, a Software Engineer and Computer Science student at Western University. It brings an animated introduction, project narratives, working principles, and an in-page résumé into a single frontend application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Current portfolio](https://povhiringyang.vercel.app/) · [GitHub profile](https://github.com/yanglluo)
 
-## React Compiler
+> **Version context:** the current portfolio link opens YangOS, a separate desktop-style experience. This repository contains the earlier React/Vite portfolio; cloning it reproduces the section-based implementation described below.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What this project demonstrates
 
-## Expanding the ESLint configuration
+- **Component composition:** introduction, background, projects, working principles, and footer are separate sections composed in `App.tsx`.
+- **Interaction design:** résumé actions in the hero and footer open the same modal through shared React state.
+- **Motion:** Framer Motion variants coordinate entrance/scroll animations; the hero cycles through focus areas with a cleaned-up interval.
+- **Responsive styling:** Tailwind CSS breakpoints, fluid type sizes, and shared CSS establish the layout across screen sizes.
+- **Frontend delivery:** Vite handles development and bundling, TypeScript checks the project during builds, and ESLint provides a separate code-quality check.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Architecture
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+main.tsx → App.tsx
+           ├─ Hero
+           ├─ WhyMeSection
+           ├─ ProjectsSection
+           ├─ HowIThinkSection
+           ├─ FooterSection
+           └─ ResumeModal ← shared open/close state
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The frontend keeps its content and interactions local to the component tree. No backend or API credentials are required to run it.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Start with these files
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| File | What to look for |
+| --- | --- |
+| [App.tsx](src/App.tsx) | Page composition and shared résumé-modal state |
+| [Hero.tsx](src/components/Hero.tsx) | Animated focus-area carousel, motion variants, and responsive header grid |
+| [ProjectsSection.tsx](src/components/ProjectsSection.tsx) | Data-driven project cards organized around the problem, implementation, and decisions |
+| [ResumeModal.tsx](src/components/ResumeModal.tsx) | Conditional modal rendering, close behavior, and résumé presentation |
+| [index.css](src/index.css) | Shared styles, fonts, and Tailwind entry point |
+
+## Stack
+
+React 19 · TypeScript 5.9 · Vite 7 · Tailwind CSS 4 · Framer Motion 12
+
+## Run locally
+
+Use npm and a Node.js version compatible with Vite 7: `20.19+` or `22.12+`, as documented in the [Vite 7 migration guide](https://v7.vite.dev/guide/migration.html).
+
+```bash
+git clone https://github.com/yanglluo/PovHiringYang.git
+cd PovHiringYang
+npm install
+npm run dev
 ```
+
+Open the URL printed by Vite, normally `http://localhost:5173`.
+
+```bash
+npm run lint      # ESLint
+npm run build     # TypeScript project build, then Vite production bundle
+npm run preview   # Serve the built dist/ directory locally
+```
+
+## Design decisions
+
+**Keep the visitor's path short.** Project context and résumé access are available within one page, with no account or backend dependency.
+
+**Share state at the smallest useful boundary.** `App.tsx` owns whether the résumé is open, while individual sections own their presentation. Both entry points use the same modal.
+
+**Keep content close to its layout.** Project cards are generated from structured data inside the projects component. This keeps the implementation small; a CMS or content-file boundary would be more useful if updates became frequent.
+
+## Current scope and next steps
+
+This is an earlier portfolio iteration. Its project descriptions, résumé copy, and external destinations may differ from current projects; consult the [current portfolio](https://povhiringyang.vercel.app/) for the latest presentation. In particular, prose inside a portfolio card is not a substitute for checking the linked project's current implementation.
+
+The repository has lint/build scripts but no automated UI test suite. Useful next checks include keyboard and focus behavior in the résumé modal, reduced-motion preferences, small-screen layouts, and external-link freshness. No accessibility or performance score is claimed here.
